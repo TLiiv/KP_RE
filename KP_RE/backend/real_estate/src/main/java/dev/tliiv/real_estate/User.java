@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document("users")
+@Document(collection = "users")
 public class User {
     @Id
     private ObjectId id;
@@ -17,14 +17,16 @@ public class User {
     private String image;
     private List<Object> bookedVisits;
     private List<ObjectId> favResidenciesID;
+    private List<ObjectId> ownedResidencies;
 
-    public User(ObjectId id, String name, String email, String image, List<Object> bookedVisits, List<ObjectId> favResidenciesID) {
+    public User(ObjectId id, String name, String email, String image, List<Object> bookedVisits, List<ObjectId> favResidenciesID,List<ObjectId> ownedResidencies) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.image = image;
         this.bookedVisits = bookedVisits;
         this.favResidenciesID = favResidenciesID;
+        this.ownedResidencies = ownedResidencies;
     }
 
 
@@ -74,6 +76,13 @@ public class User {
 
     public void setFavResidenciesID(List<ObjectId> favResidenciesID) {
         this.favResidenciesID = favResidenciesID;
+    }
+
+    public List<ObjectId> getOwnedResidenciesID() {
+        return favResidenciesID;
+    }
+    public void setOwnedResidencies(List<ObjectId> ownedResidencies) {
+        this.ownedResidencies = ownedResidencies;
     }
 }
 
