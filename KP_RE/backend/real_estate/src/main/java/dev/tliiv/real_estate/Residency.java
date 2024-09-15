@@ -1,12 +1,14 @@
 package dev.tliiv.real_estate;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
 @Document(collection = "residences")
 public class Residency {
+    @Id
     private ObjectId id;
     private String title;
     private String description;
